@@ -1,4 +1,0 @@
-Re-Tap
-======
-
-A social beer recommendation app. Login with your existing Facebook account, rate beers you like, and received recommendations of new beers to try based on other users with similar tastes.
