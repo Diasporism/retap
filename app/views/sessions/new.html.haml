@@ -1,8 +1,14 @@
-#user_nav
-  - if current_user
-    Signed in as
-    = succeed "!" do
-      %strong= current_user.name
-    = link_to 'Sign out', logout_path, id: 'sign_out'
-  - else
-    = link_to 'Sign in with Facebook', '/auth/facebook', id: 'sign_in'
+.image
+  = image_tag 'beer_splash600.jpg'
+  %h1
+    %span
+      Re-Tap:
+      %br
+      %h2 Recommendations on tap.
+
+  .row
+    .span3.center-in-span
+      %a#sign-in.btn.btn-large.btn-block.btn-warning{:href => '/auth/facebook'} Login with Facebook
+
+
+

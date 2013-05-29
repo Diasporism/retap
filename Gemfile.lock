@@ -56,6 +56,7 @@ GEM
     figaro (0.6.4)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    flat-ui-rails (0.0.2)
     haml (4.0.2)
       tilt
     haml-rails (0.4)
@@ -181,6 +182,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 3.2.1)
   figaro
+  flat-ui-rails
   haml-rails
   jquery-rails
   omniauth-facebook (= 1.4.0)

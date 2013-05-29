@@ -1,3 +1,17 @@
 @import "bootstrap";
-body { padding-top: 60px; }
+body { padding-top: 0px;
+       background-color: #eee;}
 @import "bootstrap-responsive";
+
+.center-in-span {
+  float: none;
+  margin: auto;
+  text-align: center;
+  display: block;
+  width:auto;
+  height:auto;
+}
+
+h3 {
+  color: #696969;
+}
