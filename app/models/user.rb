@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  authenticates_with_sorcery!
   attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
 
   def self.from_omniauth(auth)

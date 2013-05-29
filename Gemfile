@@ -7,6 +7,7 @@ gem 'unicorn'
 gem 'figaro'
 gem 'omniauth-facebook', '1.4.0'
 gem 'rest-client'
+gem 'sorcery'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
