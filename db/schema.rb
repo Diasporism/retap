@@ -13,11 +13,14 @@
 
 ActiveRecord::Schema.define(:version => 20130529000312) do
 
-  create_table "beers", :force => true do |t|
+  create_table "brews", :force => true do |t|
     t.string   "bid"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "brewery"
+    t.string   "med_image_url"
+    t.string   "large_image_url"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "users", :force => true do |t|

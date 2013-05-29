@@ -1,1 +1,13 @@
-= link_to 'Sign out', logout_path, id: 'sign_out'
+.container
+  = link_to 'Sign out', logout_path, id: 'sign_out'
+  .row
+    - @brews.each do |brew|
+      .span4
+        = image_tag brew.med_image_url
+        .br
+        = "Name: #{brew.name}"
+        .br
+        = "Brewery: #{brew.brewery}"
+        .br
+        = image_tag 'thumb_up_small.png'
+        = image_tag 'thumb_down_small.png'

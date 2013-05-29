@@ -2,6 +2,7 @@ class BrewsController < ApplicationController
   before_filter :require_login
 
   def index
+    @brews = Brew.all
   end
 
   def show
