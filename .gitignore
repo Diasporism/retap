@@ -16,3 +16,5 @@
 .DS_Store
 .IDEA
 /coverage
+# Ignore application configuration
+/config/application.yml
