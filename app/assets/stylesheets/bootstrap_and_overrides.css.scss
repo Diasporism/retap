@@ -1,6 +1,9 @@
 @import "bootstrap";
 body { padding-top: 0px;
-       background-color: #eee;}
+       background-color: #eee;
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+       line-height: 20px;
+}
 @import "bootstrap-responsive";
 
 .center-in-span {
@@ -14,4 +17,19 @@ body { padding-top: 0px;
 
 h3 {
   color: #696969;
+}
+
+footer a {
+  color: #a1a4a7;
+  font-weight: 700;
+}
+
+a {
+  color: #0088cc;
+  text-decoration: none;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden;
 }
