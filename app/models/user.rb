@@ -14,4 +14,9 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def self.find_other_users(user)
+    User.where(['users.id <> ?', user.id])
+  end
+
 end

@@ -5,6 +5,6 @@ Retap::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
 
-  resources :brews, except: [:index]
+  resources :brews
   resources :ratings, only: [:create, :destroy]
 end
