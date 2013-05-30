@@ -1,0 +1,30 @@
+.brew-item {
+  text-align: center;
+  margin-bottom: 20%;
+}
+.brew-item.image {
+  float: left;
+}
+.thumbs {
+  text-align: center;
+}
+.thumb-up {
+  float: left;
+  margin-left: 20%;
+}
+.thumb-down {
+  float: right;
+  margin-right: 20%;
+}
+
+@media screen and (min-width:800px) {
+  .brews-index {
+    position: relative;
+    width: 100%; /* for IE 6 */
+  }
+}
+@media screen and (max-width:799px) {
+  .brews-index {
+    display: inline;
+  }
+}
