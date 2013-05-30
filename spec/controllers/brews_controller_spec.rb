@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe BrewsController do
-  let(:valid_attributes) { { bid: 'cBLTUw', name: '18 Imperial IPA' } }
+  let(:valid_attributes) { { bid: 'cBLTUw', name: '18 Imperial IPA', brewery: 'Milwaukee Brewing Company' } }
 
   before :each do
     controller.stub(:require_login).and_return(true)

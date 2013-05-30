@@ -6,4 +6,5 @@ Retap::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
 
   resources :brews, except: [:index]
+  resources :ratings, only: [:create, :update, :destroy]
 end
