@@ -42,22 +42,8 @@ describe Recommendation do
     Rating.create(user_id: user4.id, brew_id: 9, rating: false)
   end
 
-  describe '#rank_by_similar_ratings' do
-    it 'finds users with similar tastes and ranks them' do
-      users = User.find_other_users(user1)
-      recommendation = Recommendation.new(user1)
-      ranked_users = recommendation.rank_by_similar_ratings(users)
-      expect(ranked_users.first.name).to eq 'Travis Nelson'
-      expect(ranked_users.last.name).to eq 'Guy with Bad Taste'
-    end
-  end
-
-  describe '#serve_recommendations' do
-    it 'serves beer recommendations based on other users with similar taste' do
-      users = User.find_other_users(user1)
-      recommendation = Recommendation.new(user1)
-      recommendation.rank_by_similar_ratings(users)
-      expect(recommendation.serve_recommendations).to eq [brew8, brew7]
-    end
+  it 'serves beer recommendations based on other users with similar taste' do
+    recommendations = Recommendation.for(user1)
+    expect(recommendations).to eq [brew8, brew7]
   end
 end

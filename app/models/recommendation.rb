@@ -1,19 +1,25 @@
 class Recommendation
-  attr_reader :original_user, :tallied_users
-  attr_accessor :ranked_users
+  attr_reader :original_user
 
   def initialize(original_user)
     @original_user = original_user
-    @tallied_users = []
-    @ranked_users = []
   end
 
-  def rank_by_similar_ratings(users)
-    users.each do |user|
+  def self.for(user)
+    new(user).serve_recommendations
+  end
+
+  def ranked_users
+    @ranked_users ||= rank_by_similar_ratings
+  end
+
+  def rank_by_similar_ratings
+    tallied_users = []
+    peers.each do |user|
       total = tally_points(user)
       tallied_users.insert(total, user)
     end
-    self.ranked_users = Recommendation.order_users_by_points(tallied_users)
+    tallied_users.compact.reverse
   end
 
   def serve_recommendations
@@ -27,6 +33,10 @@ class Recommendation
   end
 
   private
+
+  def peers
+    @peers ||= original_user.peers
+  end
 
   def tally_points(user)
     points = 0
@@ -42,23 +52,18 @@ class Recommendation
     original_user.ratings.any? { |r| r.brew_id == rating.brew_id }
   end
 
-  def self.order_users_by_points(users)
-    users.compact.reverse
-  end
-
 end
 
 
 #fetch all users
 #get ratings for each user
 
-#for each rating, check to see if the beer_id and value match any of the original users ratings
+#for each rating, check to see if the brew_id and value match any of the original users ratings
 #if a rating does match, add a point
 
 #sort the users by how many points they scored during the matching
 
-#grab the top N ranked users and iterate through them, collecting the beer_ids of beers they have liked that the original user hasn't tried
-#stop iterating when the recommended beer list reaches a size of 5
+#grab the ranked users and iterate through them, collecting the brew_ids of brews they have liked that the original user hasn't tried
 
-#look up the beers in the database by the id and collect them.
-#recommend those beers to the original user
+#look up the top 5 recommended brews in the database by the id and collect them.
+#recommend those brews to the original user

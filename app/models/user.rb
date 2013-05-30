@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.find_other_users(user)
-    User.where(['users.id <> ?', user.id])
+  def peers
+    User.where(['users.id <> ?', id])
   end
 
 end
