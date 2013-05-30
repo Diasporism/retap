@@ -2,13 +2,8 @@ class RatingsController < ApplicationController
   before_filter :require_login
 
   def create
-    Rating.create(user_id: current_user.id, brew_id: params[:brew_id], rating: params[:rating])
-    redirect_to root_path
-  end
-
-  def update
-    rating = Rating.where(user_id: current_user.id).where(brew_id: params[:brew_id]).limit(1).first
-    rating.update_attributes(rating: params[:rating])
+    rating = Rating.find_or_initialize_by_user_id_and_brew_id(user_id: current_user.id, brew_id: params[:brew_id])
+    rating.update_attributes(user_id: current_user.id, brew_id: params[:brew_id], rating: params[:rating])
     redirect_to root_path
   end
 

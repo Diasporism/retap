@@ -22,20 +22,6 @@ describe RatingsController do
     end
   end
 
-  describe 'PUT update' do
-    it 'updates the requested rating' do
-      Rating.create valid_attributes
-      put :update, { user_id: 1, brew_id: 1, rating: false }
-      rating = Rating.find(1)
-      expect(rating.rating).to eq false
-    end
-
-    it 'redirects to the brew_index' do
-      post :create, valid_attributes
-      response.should redirect_to(root_path)
-    end
-  end
-
   describe 'DELETE destroy' do
     it 'destroys the requested rating' do
       rating = Rating.create! valid_attributes
