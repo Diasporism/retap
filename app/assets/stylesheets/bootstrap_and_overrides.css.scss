@@ -1,9 +1,18 @@
 @import "bootstrap";
-body { padding-top: 0px;
-       background-color: #eee;
-       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-       line-height: 20px;
+body {
+  padding-top: 0px;
+  background-image:url('seamless_wood.jpg');
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 20px;
 }
+
+body.splash {
+  padding-top: 0px;
+  background-color: #eee;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 20px;
+}
+
 @import "bootstrap-responsive";
 
 .center-in-span {

@@ -1,3 +1,15 @@
+#fetch all users
+#get ratings for each user
+
+#for each rating, check to see if the brew_id and value match any of the original users ratings
+#if a rating does match, add a point
+
+#sort the users by how many points they scored during the matching
+
+#grab the ranked users and iterate through them, collecting the brew_ids of brews they have liked that the original user hasn't tried
+
+#look up the top 5 recommended brews in the database by the id and collect and return them.
+
 class Recommendation
   attr_reader :original_user
 
@@ -51,19 +63,4 @@ class Recommendation
   def brew_tasted?(rating)
     original_user.ratings.any? { |r| r.brew_id == rating.brew_id }
   end
-
 end
-
-
-#fetch all users
-#get ratings for each user
-
-#for each rating, check to see if the brew_id and value match any of the original users ratings
-#if a rating does match, add a point
-
-#sort the users by how many points they scored during the matching
-
-#grab the ranked users and iterate through them, collecting the brew_ids of brews they have liked that the original user hasn't tried
-
-#look up the top 5 recommended brews in the database by the id and collect them.
-#recommend those brews to the original user

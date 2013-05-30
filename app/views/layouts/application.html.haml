@@ -11,7 +11,7 @@
     = favicon_link_tag 'favicon.ico'
     = csrf_meta_tags
     = yield(:head)
-  %body
+  %body{:class => @splash ? 'splash' : ''}
     #main{:role => "main"}
       = yield
     %footer

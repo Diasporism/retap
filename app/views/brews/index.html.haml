@@ -1,19 +1,51 @@
-= link_to 'Sign out', logout_path, id: 'sign_out'
+%body.index
 
-.brews-index
-  .container
-    .row
-      - @brews.each do |brew|
-        .span4
-          .brew-item
-            .image
-              = image_tag brew.med_image_url
-            .info
-              = "Name: #{brew.name}"
-              .br
-              = "Brewery: #{brew.brewery}"
-            .thumbs
-              .thumb-up
-                = link_to image_tag('thumb_up_small.png'), ratings_path(brew_id: brew.id, rating: true), method: 'POST'
-              .thumb-down
-                = link_to image_tag('thumb_down_small.png'), ratings_path(brew_id: brew.id, rating: false), method: 'POST'
+  = link_to 'Sign out', logout_path, id: 'sign_out'
+
+  .brews-index
+    .container
+      .row
+        .span12.text-center
+          %h1 Recommended for You
+      .row
+        .span1.text-center
+          <
+        - @recommended_brews.each do |brew|
+          .span2
+            .brew-item
+              .image
+                = image_tag brew.med_image_url
+              .info
+                = brew.name
+                .br
+                = brew.brewery
+              .thumbs
+                .thumb-up
+                  = link_to image_tag('thumb_up_small.png'), ratings_path(brew_id: brew.id, rating: true), method: 'POST'
+                .thumb-down
+                  = link_to image_tag('thumb_down_small.png'), ratings_path(brew_id: brew.id, rating: false), method: 'POST'
+        .span1.text-center
+          >
+    .container
+      .row
+        .span12.text-center
+          %h1 Popular Brews
+      .row
+        .span1.text-center
+          <
+        - @brews.each do |brew|
+          .span2
+            .brew-item
+              .image
+                = image_tag brew.med_image_url
+              .info
+                = brew.name
+                .br
+                = brew.brewery
+              .thumbs
+                .thumb-up
+                  = link_to image_tag('thumb_up_small.png'), ratings_path(brew_id: brew.id, rating: true), method: 'POST'
+                .thumb-down
+                  = link_to image_tag('thumb_down_small.png'), ratings_path(brew_id: brew.id, rating: false), method: 'POST'
+        .span1.text-center
+          >

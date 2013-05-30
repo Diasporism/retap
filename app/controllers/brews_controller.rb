@@ -2,7 +2,9 @@ class BrewsController < ApplicationController
   before_filter :require_login
 
   def index
-    @brews = Brew.all
+    @recommended_brews = Brew.all[0..4]
+    #@recommended_brews = Recommendation.for(current_user)[0..4]
+    @brews = Brew.all[0..4]
   end
 
   def show

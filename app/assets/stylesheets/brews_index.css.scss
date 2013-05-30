@@ -1,9 +1,8 @@
+.row {
+  margin-bottom: 1%;
+}
 .brew-item {
   text-align: center;
-  margin-bottom: 20%;
-}
-.brew-item.image {
-  float: left;
 }
 .thumbs {
   text-align: center;
@@ -26,5 +25,8 @@
 @media screen and (max-width:799px) {
   .brews-index {
     display: inline;
+  }
+  footer {
+    width: 100%;
   }
 }
