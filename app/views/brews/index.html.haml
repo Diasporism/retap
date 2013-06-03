@@ -1,51 +1,110 @@
-%body.index
+%body.index{:onload => "init()"}
 
   = link_to 'Sign out', logout_path, id: 'sign_out'
 
   .brews-index
-    .container
-      .row
-        .span12.text-center
-          %h1 Recommended for You
-      .row
-        .span1.text-center
-          <
-        - @recommended_brews.each do |brew|
-          .span2
-            .brew-item
-              .image
-                = image_tag brew.med_image_url
-              .info
-                = brew.name
-                .br
-                = brew.brewery
-              .thumbs
-                .thumb-up
-                  = link_to image_tag('thumb_up_small.png'), ratings_path(brew_id: brew.id, rating: true), method: 'POST'
-                .thumb-down
-                  = link_to image_tag('thumb_down_small.png'), ratings_path(brew_id: brew.id, rating: false), method: 'POST'
-        .span1.text-center
-          >
-    .container
-      .row
-        .span12.text-center
-          %h1 Popular Brews
-      .row
-        .span1.text-center
-          <
-        - @brews.each do |brew|
-          .span2
-            .brew-item
-              .image
-                = image_tag brew.med_image_url
-              .info
-                = brew.name
-                .br
-                = brew.brewery
-              .thumbs
-                .thumb-up
-                  = link_to image_tag('thumb_up_small.png'), ratings_path(brew_id: brew.id, rating: true), method: 'POST'
-                .thumb-down
-                  = link_to image_tag('thumb_down_small.png'), ratings_path(brew_id: brew.id, rating: false), method: 'POST'
-        .span1.text-center
-          >
+    .canvas
+      %canvas#virtual_bar{:height => "450", :width => "720"}
+        %p Canvas Broken
+      .recommended-text.text-center
+        %h1 Recommended for You
+
+:javascript
+  var stage;
+
+  function init() {
+    stage = new createjs.Stage('virtual_bar');
+    var w = stage.width = stage.clientWidth;
+    var h = stage.height = stage.clientHeight;
+    stage.enableMouseOver(30)
+
+    var beer1 = new createjs.Shape();
+    var beer2 = new createjs.Shape();
+    var beer3 = new createjs.Shape();
+    var beer4 = new createjs.Shape();
+    var beer5 = new createjs.Shape();
+
+    beer1.graphics.beginFill('#000000').drawRect(110, 335, 50, 50);
+    beer2.graphics.beginFill('#000000').drawRect(210, 335, 50, 50);
+    beer3.graphics.beginFill('#000000').drawRect(310, 335, 50, 50);
+    beer4.graphics.beginFill('#000000').drawRect(410, 335, 50, 50);
+    beer5.graphics.beginFill('#000000').drawRect(510, 335, 50, 50);
+
+
+    beer1.addEventListener("mouseover", function() {
+      beer1.graphics.clear();
+      beer1.graphics.beginFill('#000000').drawRect(105, 330, 60, 60);
+      stage.update();
+    });
+    beer1.addEventListener("mouseout", function() {
+      beer1.graphics.clear();
+      beer1.graphics.beginFill('#000000').drawRect(110, 335, 50, 50);
+      stage.update();
+    });
+    beer1.addEventListener("click", function(e) {
+      window.location = ('http://www.facebook.com')
+    });
+
+    beer2.addEventListener("mouseover", function() {
+      beer2.graphics.clear();
+      beer2.graphics.beginFill('#000000').drawRect(205, 330, 60, 60);
+      stage.update();
+    });
+    beer2.addEventListener("mouseout", function() {
+      beer2.graphics.clear();
+      beer2.graphics.beginFill('#000000').drawRect(210, 335, 50, 50);
+      stage.update();
+    });
+    beer2.addEventListener("click", function(e) {
+      window.location = ('http://www.facebook.com')
+    });
+
+    beer3.addEventListener("mouseover", function() {
+      beer3.graphics.clear();
+      beer3.graphics.beginFill('#000000').drawRect(305, 330, 60, 60);
+      stage.update();
+    });
+    beer3.addEventListener("mouseout", function() {
+      beer3.graphics.clear();
+      beer3.graphics.beginFill('#000000').drawRect(310, 335, 50, 50);
+      stage.update();
+    });
+    beer3.addEventListener("click", function(e) {
+      window.location = ('http://www.facebook.com')
+    });
+
+    beer4.addEventListener("mouseover", function() {
+      beer4.graphics.clear();
+      beer4.graphics.beginFill('#000000').drawRect(405, 330, 60, 60);
+      stage.update();
+    });
+    beer4.addEventListener("mouseout", function() {
+      beer4.graphics.clear();
+      beer4.graphics.beginFill('#000000').drawRect(410, 335, 50, 50);
+      stage.update();
+    });
+    beer4.addEventListener("click", function(e) {
+      window.location = ('http://www.facebook.com')
+    });
+
+    beer5.addEventListener("mouseover", function() {
+      beer5.graphics.clear();
+      beer5.graphics.beginFill('#000000').drawRect(505, 330, 60, 60);
+      stage.update();
+    });
+    beer5.addEventListener("mouseout", function() {
+      beer5.graphics.clear();
+      beer5.graphics.beginFill('#000000').drawRect(510, 335, 50, 50);
+      stage.update();
+    });
+    beer5.addEventListener("click", function(e) {
+      window.location = ('http://www.facebook.com')
+    });
+
+    stage.addChild(beer1);
+    stage.addChild(beer2);
+    stage.addChild(beer3);
+    stage.addChild(beer4);
+    stage.addChild(beer5);
+    stage.update();
+  }

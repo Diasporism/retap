@@ -1,32 +1,44 @@
-.row {
-  margin-bottom: 1%;
-}
-.brew-item {
-  text-align: center;
-}
-.thumbs {
-  text-align: center;
-}
-.thumb-up {
-  float: left;
-  margin-left: 20%;
-}
-.thumb-down {
-  float: right;
-  margin-right: 20%;
-}
-
 @media screen and (min-width:800px) {
   .brews-index {
     position: relative;
     width: 100%; /* for IE 6 */
+  }
+  #virtual_bar {
+    width: "720";
+    height: "450";
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-image:url('vector_bar.svg');
+    background-size: cover;
+    width: auto;
+    height: auto;
   }
 }
 @media screen and (max-width:799px) {
   .brews-index {
     display: inline;
   }
-  footer {
-    width: 100%;
+  #virtual_bar {
+
+  }
+  canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-image:url('vector_bar.svg');
+    background-size: 100% 100%;
+    width: auto;
+    height: auto;
   }
 }
