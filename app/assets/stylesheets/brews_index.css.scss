@@ -1,3 +1,19 @@
+#beer1 {
+  display: none;
+}
+#beer2 {
+  display: none;
+}
+#beer3 {
+  display: none;
+}
+#beer4 {
+  display: none;
+}
+#beer5 {
+  display: none;
+}
+
 @media screen and (min-width:800px) {
   .brews-index {
     position: relative;
@@ -27,9 +43,6 @@
   .brews-index {
     display: inline;
   }
-  #virtual_bar {
-
-  }
   canvas {
     padding-left: 0;
     padding-right: 0;
@@ -38,7 +51,7 @@
     display: block;
     background-image:url('vector_bar.svg');
     background-size: 100% 100%;
-    width: auto;
+    width: 100%;
     height: auto;
   }
 }
