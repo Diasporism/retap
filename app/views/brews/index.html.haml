@@ -1,6 +1,7 @@
 %body.index{:onload => "init()"}
 
   = link_to 'Sign out', logout_path, id: 'sign_out'
+  =link_to 'Index', ratings_path
 
   .brews-index
     .text-center
@@ -55,92 +56,118 @@
     var beer4 = new createjs.Shape();
     var beer5 = new createjs.Shape();
 
-    beer1.graphics.beginFill('#000000').drawRect(110, 335, 50, 50);
-    beer2.graphics.beginFill('#000000').drawRect(210, 335, 50, 50);
-    beer3.graphics.beginFill('#000000').drawRect(310, 335, 50, 50);
-    beer4.graphics.beginFill('#000000').drawRect(410, 335, 50, 50);
-    beer5.graphics.beginFill('#000000').drawRect(510, 335, 50, 50);
+    var oldDraw = beer1.draw;
 
+    beer1.draw = this.draw;
+    beer1.cache(0, 0, 210, 635, 2);
+    beer1.x = 110
+    beer1.y = 235
+    beer1.draw = oldDraw
+
+    beer2.draw = this.draw;
+    beer2.cache(0, 0, 210, 635, 2);
+    beer2.x = 210
+    beer2.y = 235
+
+    beer3.draw = this.draw;
+    beer3.cache(0, 0, 210, 635, 2);
+    beer3.x = 310
+    beer3.y = 235
+
+    beer4.draw = this.draw;
+    beer4.cache(0, 0, 210, 635, 2);
+    beer4.x = 410
+    beer4.y = 235
+
+    beer5.draw = this.draw;
+    beer5.cache(0, 0, 210, 635, 2);
+    beer5.x = 510
+    beer5.y = 235
 
     beer1.addEventListener("mouseover", function() {
-      beer1.graphics.clear();
-      beer1.graphics.beginFill('#000000').drawRect(105, 330, 60, 60);
+      beer1.scaleX = 2.0;
+      beer1.scaleY = 2.0;
+      beer1.x = 85
+      beer1.y = 115
       jQuery("#beer1").slideToggle("fast");
       stage.update();
     });
     beer1.addEventListener("mouseout", function() {
-      beer1.graphics.clear();
-      beer1.graphics.beginFill('#000000').drawRect(110, 335, 50, 50);
+      beer1.scaleX = 1.0;
+      beer1.scaleY = 1.0;
+      beer1.x = 110
+      beer1.y = 235
       jQuery("#beer1").slideToggle("fast");
       stage.update();
     });
-    //beer1.addEventListener("click", function(e) {
-    //  window.location = ('http://www.facebook.com')
-    //});
 
     beer2.addEventListener("mouseover", function() {
-      beer2.graphics.clear();
-      beer2.graphics.beginFill('#000000').drawRect(205, 330, 60, 60);
+      beer2.scaleX = 2.0;
+      beer2.scaleY = 2.0;
+      beer2.x = 185
+      beer2.y = 115
       jQuery("#beer2").slideToggle("fast");
       stage.update();
     });
     beer2.addEventListener("mouseout", function() {
-      beer2.graphics.clear();
-      beer2.graphics.beginFill('#000000').drawRect(210, 335, 50, 50);
+      beer2.scaleX = 1.0;
+      beer2.scaleY = 1.0;
+      beer2.x = 210
+      beer2.y = 235
       jQuery("#beer2").slideToggle("fast");
       stage.update();
     });
-    //beer2.addEventListener("click", function(e) {
-    //  window.location = ('http://www.facebook.com')
-    //});
 
     beer3.addEventListener("mouseover", function() {
-      beer3.graphics.clear();
-      beer3.graphics.beginFill('#000000').drawRect(305, 330, 60, 60);
+      beer3.scaleX = 2.0;
+      beer3.scaleY = 2.0;
+      beer3.x = 285
+      beer3.y = 115
       jQuery("#beer3").slideToggle("fast");
       stage.update();
     });
     beer3.addEventListener("mouseout", function() {
-      beer3.graphics.clear();
-      beer3.graphics.beginFill('#000000').drawRect(310, 335, 50, 50);
+      beer3.scaleX = 1.0;
+      beer3.scaleY = 1.0;
+      beer3.x = 310
+      beer3.y = 235
       jQuery("#beer3").slideToggle("fast");
       stage.update();
     });
-    //beer3.addEventListener("click", function(e) {
-    //  window.location = ('http://www.facebook.com')
-    //});
 
     beer4.addEventListener("mouseover", function() {
-      beer4.graphics.clear();
-      beer4.graphics.beginFill('#000000').drawRect(405, 330, 60, 60);
+      beer4.scaleX = 2.0;
+      beer4.scaleY = 2.0;
+      beer4.x = 385
+      beer4.y = 115
       jQuery("#beer4").slideToggle("fast");
       stage.update();
     });
     beer4.addEventListener("mouseout", function() {
-      beer4.graphics.clear();
-      beer4.graphics.beginFill('#000000').drawRect(410, 335, 50, 50);
+      beer4.scaleX = 1.0;
+      beer4.scaleY = 1.0;
+      beer4.x = 410
+      beer4.y = 235
       jQuery("#beer4").slideToggle("fast");
       stage.update();
     });
-    //beer4.addEventListener("click", function(e) {
-    //  window.location = ('http://www.facebook.com')
-    //});
 
     beer5.addEventListener("mouseover", function() {
-      beer5.graphics.clear();
-      beer5.graphics.beginFill('#000000').drawRect(505, 330, 60, 60);
+      beer5.scaleX = 2.0;
+      beer5.scaleY = 2.0;
+      beer5.x = 485
+      beer5.y = 115
       jQuery("#beer5").slideToggle("fast");
       stage.update();
     });
     beer5.addEventListener("mouseout", function() {
-      beer5.graphics.clear();
-      beer5.graphics.beginFill('#000000').drawRect(510, 335, 50, 50);
+      beer5.scaleX = 1.0;
+      beer5.scaleY = 1.0;
+      beer5.x = 510
+      beer5.y = 235
       jQuery("#beer5").slideToggle("fast");
       stage.update();
     });
-    //beer5.addEventListener("click", function(e) {
-    //  window.location = ('http://www.facebook.com')
-    //});
 
     stage.addChild(beer1);
     stage.addChild(beer2);
@@ -149,3 +176,173 @@
     stage.addChild(beer5);
     stage.update();
   }
+
+  var draw = function(ctx) {
+    ctx.save();
+    ctx.translate(0,0);
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.lineTo(52.667,0);
+    ctx.lineTo(52.667,160.673);
+    ctx.lineTo(0,160.673);
+    ctx.closePath();
+    ctx.clip();
+    ctx.translate(0,0);
+    ctx.translate(0,0);
+    ctx.scale(1,1);
+    ctx.translate(0,0);
+    ctx.strokeStyle = 'rgba(0,0,0,0)';
+    ctx.lineCap = 'butt';
+    ctx.lineJoin = 'miter';
+    ctx.miterLimit = 4;
+    ctx.save();
+    ctx.save();
+    ctx.fillStyle = "#e67817";
+    ctx.strokeStyle = "#000000";
+    ctx.miterLimit = 10;
+    ctx.beginPath();
+    ctx.moveTo(37.319,21.383);
+    ctx.lineTo(15.289000000000001,21.32);
+    ctx.bezierCurveTo(14.815000000000001,25.944,10.934000000000001,28.341,10.934000000000001,52.879999999999995);
+    ctx.bezierCurveTo(10.642000000000001,56.696999999999996,9.732000000000001,59.00599999999999,7.622000000000002,61.471);
+    ctx.bezierCurveTo(1,67.506,1,76.703,1,87.973);
+    ctx.lineTo(1,152.80700000000002);
+    ctx.bezierCurveTo(1,156.555,8.704,159.59,18.225,159.59);
+    ctx.lineTo(34.336,159.59);
+    ctx.bezierCurveTo(43.857,159.59,51.561,156.555,51.561,152.80700000000002);
+    ctx.lineTo(51.561,87.973);
+    ctx.bezierCurveTo(51.561,76.703,51.561,67.506,44.939,61.471000000000004);
+    ctx.bezierCurveTo(42.829,59.006,41.919,56.697,41.627,52.88);
+    ctx.bezierCurveTo(41.038,28.974,38.223,27.876,37.319,21.383);
+    ctx.lineTo(37.319,21.383);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.fillStyle = "#fdf5ac";
+    ctx.strokeStyle = "#000000";
+    ctx.miterLimit = 10;
+    ctx.beginPath();
+    ctx.moveTo(4.525,138.091);
+    ctx.bezierCurveTo(4.525,139.288,14.755,140.257,27.398000000000003,140.257);
+    ctx.bezierCurveTo(39.535000000000004,140.257,49.356,139.288,49.356,138.091);
+    ctx.lineTo(49.356,80.424);
+    ctx.bezierCurveTo(49.356,79.43400000000001,40.206,78.632,28.898000000000003,78.632);
+    ctx.bezierCurveTo(15.426000000000004,78.632,4.525000000000002,79.43400000000001,4.525000000000002,80.424);
+    ctx.lineTo(4.525000000000002,138.091);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.fillStyle = "#c1272d";
+    ctx.strokeStyle = "#000000";
+    ctx.miterLimit = 10;
+    ctx.beginPath();
+    ctx.moveTo(26.495,80.423);
+    ctx.bezierCurveTo(36.800081147092776,80.423,45.153999999999996,93.3324215233789,45.153999999999996,109.257);
+    ctx.bezierCurveTo(45.153999999999996,125.18157847662111,36.800081147092776,138.091,26.495,138.091);
+    ctx.bezierCurveTo(16.189918852907226,138.091,7.836000000000002,125.18157847662111,7.836000000000002,109.257);
+    ctx.bezierCurveTo(7.836000000000002,93.3324215233789,16.189918852907226,80.423,26.495,80.423);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.fillStyle = "#009245";
+    ctx.strokeStyle = "#000000";
+    ctx.miterLimit = 10;
+    ctx.beginPath();
+    ctx.moveTo(46.773,112.924);
+    ctx.lineTo(40.023,115.382);
+    ctx.bezierCurveTo(40.023,124.132,33.273,131.507,26.475,131.507);
+    ctx.bezierCurveTo(19.919,131.507,15.023000000000001,125.132,14.513000000000002,122.137);
+    ctx.lineTo(6.2730000000000015,124.424);
+    ctx.lineTo(6.2730000000000015,105.424);
+    ctx.lineTo(12.576,104.34500000000001);
+    ctx.bezierCurveTo(12.576,96.05000000000001,19.898,87.75400000000002,26.475,87.757);
+    ctx.bezierCurveTo(32.025,87.76,36.523,93.132,38.126000000000005,97.21000000000001);
+    ctx.lineTo(46.773,94.59100000000001);
+    ctx.lineTo(46.773,112.924);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.fillStyle = "#e67817";
+    ctx.strokeStyle = "#000000";
+    ctx.miterLimit = 10;
+    ctx.beginPath();
+    ctx.moveTo(36.786,16.913);
+    ctx.bezierCurveTo(36.786,16.222,36.86,15.335,37.568,14.366);
+    ctx.bezierCurveTo(38.146,13.522,35.632,8.521,34.754999999999995,7.1);
+    ctx.lineTo(17.603,7.163);
+    ctx.lineTo(17.603,7.163);
+    ctx.bezierCurveTo(16.726000000000003,8.584,14.212000000000002,13.585,14.790000000000001,14.429);
+    ctx.bezierCurveTo(15.498000000000001,15.398,15.811,16.222,15.811,16.913);
+    ctx.lineTo(36.786,16.913);
+    ctx.lineTo(36.786,16.913);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.fillStyle = "#d5c385";
+    ctx.strokeStyle = "#000000";
+    ctx.miterLimit = 10;
+    ctx.beginPath();
+    ctx.moveTo(36.846,7.101);
+    ctx.lineTo(15.512,7.101);
+    ctx.bezierCurveTo(15.429,5.0169999999999995,16.068,2.183,17.892,1.351);
+    ctx.lineTo(34.465,1.351);
+    ctx.bezierCurveTo(36.29,2.183,36.929,5.017,36.846,7.101);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.fillStyle = "#c1272d";
+    ctx.strokeStyle = "#000000";
+    ctx.miterLimit = 10;
+    ctx.beginPath();
+    ctx.moveTo(15.289,20.96);
+    ctx.lineTo(15.71,16.913);
+    ctx.lineTo(36.735,16.913);
+    ctx.lineTo(37.273,20.976);
+    ctx.lineTo(15.289,20.96);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.fillStyle = "#c1272d";
+    ctx.strokeStyle = "#000000";
+    ctx.miterLimit = 10;
+    ctx.beginPath();
+    ctx.moveTo(41.07,41.423);
+    ctx.lineTo(11.429,41.423);
+    ctx.lineTo(11.939,36.548);
+    ctx.lineTo(40.606,36.548);
+    ctx.lineTo(41.07,41.423);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.save();
+    ctx.fillStyle = "#fdf5ac";
+    ctx.strokeStyle = "#000000";
+    ctx.miterLimit = 10;
+    ctx.beginPath();
+    ctx.moveTo(40.554,36.07);
+    ctx.bezierCurveTo(40.241,28.476,38.585,23.539,37.304,21.32);
+    ctx.lineTo(15.116,21.32);
+    ctx.bezierCurveTo(13.959999999999999,23.32,12.052999999999999,32.32,11.802999999999999,36.07);
+    ctx.lineTo(40.554,36.07);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+    ctx.restore();
+    ctx.restore();
+    };

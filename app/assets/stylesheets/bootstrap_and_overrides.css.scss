@@ -24,16 +24,20 @@ body.splash {
   height:auto;
 }
 
+.span4 {
+  margin-bottom: 30px;
+}
+
 h3 {
   color: #696969;
 }
 
 a {
-  color: #0088cc;
-  text-decoration: none;
-  -webkit-transition: 0.25s;
-  -moz-transition: 0.25s;
-  -o-transition: 0.25s;
-  transition: 0.25s;
-  -webkit-backface-visibility: hidden;
-}
+   color: #0088cc;
+   text-decoration: none;
+   -webkit-transition: 0.25s;
+   -moz-transition: 0.25s;
+   -o-transition: 0.25s;
+   transition: 0.25s;
+   -webkit-backface-visibility: hidden;
+ }

@@ -18,7 +18,7 @@ describe RatingsController do
 
     it 'redirects to the brew_index' do
       post :create, valid_attributes
-      response.should redirect_to(root_path)
+      response.should redirect_to(ratings_path)
     end
   end
 
@@ -33,7 +33,7 @@ describe RatingsController do
     it 'redirects to the brew_index' do
       rating = Rating.create! valid_attributes
       delete :destroy, {id: rating.id}
-      response.should redirect_to(root_path)
+      response.should redirect_to(ratings_path)
     end
   end
 end
