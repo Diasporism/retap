@@ -1,14 +1,6 @@
-.row.center-in-span
-  - @brews.each do |brew|
-    .span4.text-center
-      = image_tag 'bottle.svg'
-      .br
-      = brew.name
-      .br
-      = brew.brewery
-      .br
-      .btn-group
-        .btn.btn-small
-          = link_to 'Love', ratings_path(brew_id: brew.id, rating: true), {action: :create, method: :post}
-        .btn.btn-small
-          = link_to 'Hate', ratings_path(brew_id: brew.id, rating: false), {action: :create, method: :post}
+#brews
+  .page
+    = render partial: 'brews', locals: { brews: @brews }
+
+.text-center
+  = paginate @brews

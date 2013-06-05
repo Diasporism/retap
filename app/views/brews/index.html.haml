@@ -1,7 +1,9 @@
-%body.index{:onload => "init()"}
-
-  = link_to 'Sign out', logout_path, id: 'sign_out'
-  =link_to 'Index', ratings_path
+%body{:onload => "init()"}
+  .row
+    .span2#ratings-btn
+      %a.btn{:href => '/ratings'} Ratings
+    .span2#signout-btn
+      %a.btn{:href => '/logout'} Logout
 
   .brews-index
     .text-center
@@ -10,34 +12,34 @@
       %canvas#virtual_bar{:height => "450", :width => "720"}
         %p Oops, looks like this page isn't compatible with your browser.
       #beer1.text-center
-        %h5
+        %h4
           = @recommended_brews[0].name
         .br
-        %h5
+        %h4
           = @recommended_brews[0].brewery
       #beer2.text-center
-        %h5
+        %h4
           = @recommended_brews[1].name
         .br
-        %h5
+        %h4
           = @recommended_brews[1].brewery
       #beer3.text-center
-        %h5
+        %h4
           = @recommended_brews[2].name
         .br
-        %h5
+        %h4
           = @recommended_brews[2].brewery
       #beer4.text-center
-        %h5
+        %h4
           = @recommended_brews[3].name
         .br
-        %h5
+        %h4
           = @recommended_brews[3].brewery
       #beer5.text-center
-        %h5
+        %h4
           = @recommended_brews[4].name
         .br
-        %h5
+        %h4
           = @recommended_brews[4].brewery
 
 :javascript

@@ -2,7 +2,7 @@ class RatingsController < ApplicationController
   before_filter :require_login
 
   def index
-    @brews = Brew.all
+    @brews = Brew.page(params[:page])
   end
 
   def create

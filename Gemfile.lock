@@ -74,6 +74,9 @@ GEM
     json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.8.0)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -183,6 +186,7 @@ DEPENDENCIES
   figaro
   haml-rails
   jquery-rails
+  kaminari
   omniauth-facebook (= 1.4.0)
   rails (= 3.2.13)
   rest-client

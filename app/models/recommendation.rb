@@ -18,7 +18,8 @@ class Recommendation
   end
 
   def self.for(user)
-    new(user).serve_recommendations
+    brews = new(user).serve_recommendations
+    brews.empty? ? Brew.limit(5) : brews
   end
 
   def ranked_users

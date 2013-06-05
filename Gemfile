@@ -12,6 +12,8 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'simplecov'
+gem 'jquery-rails'
+gem 'kaminari'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
