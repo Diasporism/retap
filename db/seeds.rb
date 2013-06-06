@@ -7,13 +7,17 @@ while x <= 10 do
   beers = beer_listing['data']
 
   beers.each do |beer|
-    if beer['labels']
-      Brew.create(bid: beer['id'], name: beer['name'], brewery: beer['breweries'].first['name'], med_image_url: beer['labels']['medium'], large_image_url: beer['labels']['large'])
-    #elsif beer['breweries'].first['images']
-    #  Brew.create(bid: beer['id'], name: beer['name'], med_image_url: beer['breweries'].first['images']['medium'], large_image_url: beer['breweries'].first['images']['large'])
-    #else
-    end
+    Brew.create(bid: beer['id'], name: beer['name'], brewery: beer['breweries'].first['name'], med_image_url: beer['labels']['medium'], large_image_url: beer['labels']['large'])
   end
   puts x
   x += 1
+end
+
+#Creates users with random beer ratings attached to them
+
+100.times do
+  user = User.create(provider: 'facebook', name: 'Jane Doe')
+  50.times do
+    Rating.create(user_id: user.id, brew_id: rand(1..500), rating: [true, false].sample)
+  end
 end
