@@ -7,7 +7,7 @@ while x <= 10 do
   beers = beer_listing['data']
 
   beers.each do |beer|
-    Brew.create(bid: beer['id'], name: beer['name'], brewery: beer['breweries'].first['name'], med_image_url: beer['labels']['medium'], large_image_url: beer['labels']['large'])
+    Brew.create(bid: beer['id'], name: beer['name'], brewery: beer['breweries'].first['name'])
   end
   puts x
   x += 1
