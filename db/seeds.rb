@@ -18,6 +18,8 @@ end
 100.times do
   user = User.create(provider: 'facebook', name: 'Jane Doe')
   50.times do
-    Rating.create(user_id: user.id, brew_id: rand(1..500), rating: [true, false].sample)
+    rating = [true, false].sample
+    brew_id = rand(1..500)
+    Rating.create(user_id: user.id, brew_id: brew_id, rating: rating)
   end
 end
