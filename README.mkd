@@ -2,3 +2,13 @@ Re-Tap
 =========
 
 A social beer recommendation app. Login with your existing Facebook account, rate beers you like, and received recommendations of new beers to try based on other users with similar tastes.
+
+Installation  Directions
+========================
+
+1. Fork and clone the repo
+2. Setup a developer app on Facebook and set the url to what you would like.
+3. Use Figaro to store the Facebook ID and Key you receive from Facebook in your app without sharing it with the rest of the world
+4. Bundle
+5. Start the server
+
