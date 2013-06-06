@@ -1,4 +1,9 @@
 #brews
+  .row
+    .span2#ratings-btn
+      %a.btn{:href => '/'} Recommended
+    .span2#signout-btn
+      %a.btn{:href => '/logout'} Logout
   .page
     = render partial: 'brews', locals: { brews: @brews }
 
